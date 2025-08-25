@@ -28,5 +28,15 @@ public class RemoteRequestServlet extends HttpServlet {
             out.println("<h2>Context parameter '" + context_urln + "' not found.</h2>");
             return;
         }
+
+        try{
+            URL url = new URL(remoteUrl);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+
+            int responseCode = conn.getResponseCode();
+            out.println("<h3>Response Code : " + responseCode + "</h3>");
+        }
+
     }
 }
