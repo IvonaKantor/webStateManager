@@ -8,4 +8,8 @@ import java.net.URL;
 
 public class RemoteRequestServlet extends HttpServlet {
 
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+    }
 }
