@@ -29,14 +29,28 @@ public class RemoteRequestServlet extends HttpServlet {
             return;
         }
 
-        try{
+        try {
             URL url = new URL(remoteUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 
             int responseCode = conn.getResponseCode();
             out.println("<h3>Response Code : " + responseCode + "</h3>");
-        }
 
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String inputLine;
+            StringBuffer content = new StringBuffer();
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+                content.append("\n");
+            }
+            in.close();
+            conn.disconnect();
+
+            out.println(content.toString());
+        } catch (Exception e) {
+            out.println("<h2>Exception: " + e.getMessage() + "</h2>");
+            e.printStackTrace(out);
+        }
     }
 }
