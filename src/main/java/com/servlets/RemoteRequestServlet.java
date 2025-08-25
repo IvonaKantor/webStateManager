@@ -20,5 +20,13 @@ public class RemoteRequestServlet extends HttpServlet {
             out.println("<h2>Parameter 'urln' is empty.</h2>");
             return;
         }
+
+        String context_urln = "URL" + urln_param;
+        String remoteUrl = getServletContext().getInitParameter(context_urln);
+
+        if (remoteUrl == null) {
+            out.println("<h2>Context parameter '" + context_urln + "' not found.</h2>");
+            return;
+        }
     }
 }
