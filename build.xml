@@ -1,3 +1,8 @@
 <project name="webStateManager" default="deploy-local" basedir=".">
-
+    <property name="webapp.name" value="webStateManager"/>
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+    <property name="web" location="src/main/web"/>
+    <property name="server" location="C:\Program Files\Apache Software Foundation\Tomcat 11.0"/>
+    <property name="servlet.api.jar" location="${web}/WEB-INF/lib/jakarta.servlet-api-6.1.0.jar"/>
 </project>
