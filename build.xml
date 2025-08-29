@@ -2,8 +2,16 @@
     <property name="webapp.name" value="webStateManager"/>
     <property name="src" location="src"/>
     <property name="build" location="build"/>
-    <property name="web" location="src/main/web"/>
-    <property name="server" location="C:\Program Files\Apache Software Foundation\Tomcat 11.0"/>
+    <property name="web" location="src/main/webapp"/>
+    <property name="classes" location="${build}/classes"/>
+    <property name="server" location="C:/Program Files/Apache Software Foundation/Tomcat 11.0"/>
     <property name="servlet.api.jar" location="${web}/WEB-INF/lib/jakarta.servlet-api-6.1.0.jar"/>
 
+    <target name="prepare">
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${server}/webapps/${webapp.name}"/>
+        <mkdir dir="${server}/webapps/${webapp.name}/WEB-INF"/>
+        <mkdir dir="${server}/webapps/${webapp.name}/WEB-INF/classes"/>
+        <mkdir dir="${server}/webapps/${webapp.name}/WEB-INF/lib"/>
+    </target>
 </project>
