@@ -2,3 +2,6 @@
 <%
     CBean bean = (CBean) application.getAttribute("atrCBean");
 %>
+<p>Value1: <%= bean != null ? bean.getValue1() : "null" %></p>
+<p>Value2: <%= bean != null ? bean.getValue2() : "null" %></p>
+<p>Value3: <%= bean != null ? bean.getValue3() : "null" %></p>
