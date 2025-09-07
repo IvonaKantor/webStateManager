@@ -6,5 +6,13 @@
     <meta charset="UTF-8">
     <title>CBean Manager</title>
 </head>
+<body>
+<h1>CBean State Management</h1>
 
+<%
+    CBean bean = (CBean) application.getAttribute("atrCBean");
+    String status = (bean != null) ? "Object exists" : "Object not found";
+%>
+
+</body>
 </html>
