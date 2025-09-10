@@ -1,6 +1,6 @@
 package com.servlets;
 
-import com.beans.CBean;
+import webapp.pages.CBean;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
