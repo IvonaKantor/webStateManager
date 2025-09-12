@@ -1,4 +1,4 @@
-package webapp.pages;
+package webapp.WEB.classes.beans;
 
 public class CBean {
     private String value1;
