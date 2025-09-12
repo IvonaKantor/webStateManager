@@ -14,4 +14,40 @@
         <mkdir dir="${server}/webapps/${webapp.name}/WEB-INF/classes"/>
         <mkdir dir="${server}/webapps/${webapp.name}/WEB-INF/lib"/>
     </target>
+
+    <target name="compile" depends="prepare">
+        <javac srcdir="${src}/main/java"
+               destdir="${classes}"
+               classpath="${servlet.api.jar}"/>
+    </target>
+
+    <target name="deploy-local" depends="compile">
+        <copy todir="${server}/webapps/${webapp.name}/WEB-INF/classes">
+            <fileset dir="${classes}"/>
+        </copy>
+
+        <copy todir="${server}/webapps/${webapp.name}">
+            <fileset dir="${web}/pages">
+                <include name="**/*.jsp"/>
+                <include name="**/*.html"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${server}/webapps/${webapp.name}/WEB-INF">
+            <fileset dir="${web}/WEB-INF">
+                <include name="web.xml"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${server}/webapps/${webapp.name}/WEB-INF/lib">
+            <fileset dir="${web}/WEB-INF/lib">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${server}/webapps/${webapp.name}"/>
+    </target>
 </project>
