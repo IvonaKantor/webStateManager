@@ -5,12 +5,12 @@
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <context-param>
         <param-name>URL1</param-name>
-        <param-value>https://bin.org/page.html</param-value>
+        <param-value>http://localhost/page.html</param-value>
     </context-param>
 
     <context-param>
         <param-name>URL2</param-name>
-        <param-value>https://bin.org/servlet</param-value>
+        <param-value>http://localhost/servlet</param-value>
     </context-param>
 
     <servlet>
