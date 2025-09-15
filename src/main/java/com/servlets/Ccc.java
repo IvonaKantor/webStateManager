@@ -1,13 +1,11 @@
 package com.servlets;
 
-import webapp.pages.CBean;
+import com.beans.CBean;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/Ccc")
-public class Ccc extends HttpSErvlet {
+public class Ccc extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
@@ -20,13 +18,13 @@ public class Ccc extends HttpSErvlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         process(request, response);
-        request.getRequestDispatcher("Ccc.jsp").forward(request, response);
+        request.getRequestDispatcher("ccc.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         process(request, response);
-        request.getRequestDispatcher("Ccc.jsp").forward(request, response);
+        request.getRequestDispatcher("ccc.jsp").forward(request, response);
     }
 
     private void process(HttpServletRequest request, HttpServletResponse response)
