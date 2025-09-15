@@ -1,8 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" import="javax.servlet.ServletContext" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <%
-    String url1 = getServletContext().getInitParameter("URL1");
-    String url2 = getServletContext().getInitParameter("URL2");
+    String url1 = application.getInitParameter("URL1");
+    String url2 = application.getInitParameter("URL2");
 %>
 <p>URL1: <%= url1 %>
 </p>
