@@ -29,6 +29,8 @@
         <copy todir="${server}/webapps/${webapp.name}">
             <fileset dir="${web}/pages">
                 <include name="**/*.jsp"/>
+            </fileset>
+            <fileset dir="${web}">
                 <include name="**/*.html"/>
             </fileset>
         </copy>
