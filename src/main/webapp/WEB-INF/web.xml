@@ -10,7 +10,7 @@
 
     <context-param>
         <param-name>URL2</param-name>
-        <param-value>http://localhost:8080/webStateManager/servlet</param-value>
+        <param-value>http://localhost:8080/webStateManager/urls.jsp</param-value>
     </context-param>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
