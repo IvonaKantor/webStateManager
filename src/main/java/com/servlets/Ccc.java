@@ -34,19 +34,28 @@ public class Ccc extends HttpServlet {
     private void process(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        ServletContext context = getServletContext();
+        HttpSession session = request.getSession();
+        String sessionId = session.getId();
         String mode = request.getParameter("CBean");
         CBean bean;
 
         if ("new".equals(mode)) {
             bean = new CBean();
-            context.setAttribute("atrCBean", bean);
+            session.setAttribute(sessionId, bean);
+            System.out.println("Created a new bean for session " + sessionId);
         } else {
-            bean = (CBean) context.getAttribute("atrCBean");
+            bean = (CBean) session.getAttribute(sessionId);
+            if (bean == null) {
+                bean = (CBean) getServletContext().getAttribute("atrCBean");
+                session.setAttribute(sessionId, bean);
+                System.out.println("Using application bean for session: " + sessionId);
+            }
         }
 
         if (request.getParameter("Value1") != null) bean.setValue1(request.getParameter("Value1"));
         if (request.getParameter("Value2") != null) bean.setValue2(request.getParameter("Value2"));
         if (request.getParameter("Value3") != null) bean.setValue3(request.getParameter("Value3"));
+
+        request.setAttribute("atrCBen", bean);
     }
 }
